@@ -14,46 +14,41 @@ export default StyleSheet.create({
         // width: 100 * vw
     },
 
+    headerMainContainer: {
+        justifyContent: 'space-between',
+        flex: 1,
+        paddingHorizontal: 3 * vw,
+        // margin: 5*vh
+    },
+
     header_styles: {
-        height: 10 * vh,
+        height: 30 * vh,
         width: 100 * vw,
         overflow: 'hidden',
         borderBottomEndRadius: 6 * vh,
-        borderBottomStartRadius: 6 * vh,
-        backgroundColor: '#ffffff'
+        borderBottomStartRadius: 6 * vh
     },
     back: {
         height: '100%',
         width: '100%',
     },
-    searchBarContainer: {
-        width: 55 * vw,
-        height: 4.5 * vh,
-        justifyContent: 'center',
-        paddingLeft: 5 * vw,
-        borderRadius: 2 * vh,
-        backgroundColor: 'lightgray',
-        // alignItems:'center'
-    },
     header_container: {
         justifyContent: 'space-between',
         paddingVertical: 3 * vh,
-        paddingHorizontal: 5 * vw,
-        alignItems: 'center'
+        alignItems: 'center',
+        // borderWidth: 1,
     },
     headerBackground: {
         paddingBottom: 1 * vh,
-        // height: 20 * vh,
+        height: 20 * vh,
         width: 100 * vh,
-        color: '#ffffff'
-
+        // backgroundColor: 'red'
     },
     headerTitleStyles: {
         fontSize: 3 * vh,
         fontWeight: 'bold',
         textAlign: 'left',
-        color: '#000000'
-
+        color: '#ffffff'
     },
     titleContainer: {
         flexDirection: 'row',
@@ -62,7 +57,6 @@ export default StyleSheet.create({
         justifyContent: 'space-between',
         // paddingHorizontal: 1 * vw
     },
- 
     btn: {
         width: 27 * vw,
         marginVertical: 2 * vh,
@@ -94,13 +88,12 @@ export default StyleSheet.create({
         width: 5 * vh,
         justifyContent: 'center',
         alignItems: 'center',
-        backgroundColor: 'lightgray',//'pink',
+        backgroundColor: theme.colors.gray,//'pink',
         borderRadius: (5 * vh) / 2
     },
     iconImageStyles: {
         height: 3 * vh,
-        width: 3 * vh,
-        tintColor:'#696969'
+        width: 3 * vh
     },
     avatarContainer: {
         padding: 0.3 * vh,

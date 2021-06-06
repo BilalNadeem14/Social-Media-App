@@ -82,6 +82,7 @@ module.exports = {
             settings: require('./icons/settings.png'),
             email: require('./icons/email.png'),
             heart: require('./icons/heart.png'),
+            search: require('./icons/searchGray.png'),
             heart_filled: require('./icons/heart_filled.png'),
         }
     
