@@ -10,7 +10,7 @@ import HomeStackNavigator from './HomeNavigator';
 import TabBarButton from '../components/TabBarButton';
 import styles from './styles'
 import Profile from '../screens/Profile';
-import FriendListScreen from '../screens/FriendListScreen';
+import FriendListScreen from '../screens/FriendListScreen'; 
 
 const HomeTabs = createBottomTabNavigator();
 
