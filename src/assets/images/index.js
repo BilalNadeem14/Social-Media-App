@@ -1,7 +1,7 @@
 module.exports = {
-    banners: {
+    // banners: {
 
-    },
+    // },
     icons: {
         tutorialImg: require('./icons/tutorialImg.png'),
         logo: require('./icons/logo.png'),
@@ -71,7 +71,22 @@ module.exports = {
 
         userimg: require('./sampleImages/userimg.png'),
 
+    },
+
+    assets: {
+        
+        sample_images: {
+            profile_header: require('./images/profile_back.jpg'), 
+        },
+        icons: {
+            settings: require('./icons/settings.png'),
+            email: require('./icons/email.png'),
+            heart: require('./icons/heart.png'),
+            heart_filled: require('./icons/heart_filled.png'),
+        }
+    
     }
+    
 }
 
 

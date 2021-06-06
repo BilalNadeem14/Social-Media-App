@@ -87,7 +87,7 @@ export const showLeftButton = (activeRouteName, { navigation, route }) => {
         case 'Menu':
         case 'ChatList':
         case 'MakeOwnPackage':
-
+        case 'Login':
             return null;
 
 

@@ -1,58 +1,140 @@
-import React from 'react';
-import {View, ScrollView, Text,} from 'react-native';
+import React from 'react'
+import { FlatList, Image, ImageBackground, Text, TouchableOpacity, View, ScrollView } from 'react-native'
 import SafeAreaView from 'react-native-safe-area-view';
-import styles from './styles';
-import {icons, sampleImages} from '../../assets/images';
-import {connect} from 'react-redux';
-import MainInput from '../../components/MainInput';
-import Alert from '../../popups/AlertPopup';
 import Button from '../../components/Button';
-import JostRegular from '../../components/JostRegular';
-import TouchableHOC from '../../components/TouchableHOC';
-import {StackActions} from '@react-navigation/native';
-import {actions} from '../../redux/actions';
-import {msg, regex, toast} from '../../utils';
+import styles from './styles'
+import {assets} from '../../assets/images'
+import vh from '../../utils/units/vh'
+
+
 class Profile extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      activeSlide: 0,
-      email: '',
-      password: '',
-    };
-  }
+    constructor(props) {
+        super(props);
+        this.state = {
+            loading: false,
+            userImage: '',
 
-  componentDidMount() {
-    // this.ref.show()
-  }
+            search: '',
+            response: []
+        };
+    }
 
-  onChangeText = (value, type) => {
-    // console.log('baby')
-    this.setState({...this.state, [type]: value});
-    // state[type]
-  };
+_renderListHeaderSeperator = () => (
+    <View //style={styles.ListHeader}
+    >
+        <View style={styles.headerBackground}>
+            <View style={styles.header_styles}>
+                <ImageBackground resizeMode='cover' source={assets.sample_images.profile_header} style={styles.back} >
+                    {this._renderHeaderContent()}
+                </ImageBackground>
+            </View>
+            {this._renderAvatarContent()}
+            </View>
+        <View style={styles.listSeperator} />
+    </View>
+)
 
 
-  render() {
-    return <SafeAreaView forceInset={{ top: 'always' }}
-      style={styles.container}>
-    <Text>Page content</Text>
-  </SafeAreaView> 
-    // <View style={{backgroundColor: 'red', flex: 1, marginTop:}}>
-    //   <Text>Profile Screen</Text>
-      
-    // </View> 
-  }
+_renderListItems = ({ item, index }) => <View style={styles.listItemStyles}>
+    <View style={styles.listItemTitleContainer}>
+        <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+            {this._renderListAvatarContent()}
+            <View>
+                <Text style={[styles.headerTitleStyles, { color: 'black', fontSize: 1.8 * vh }]}>
+                    Bella Thorne
+                </Text>
+                <Text style={[styles.headerTitleStyles, { color: 'black', fontSize: 1.5 * vh, fontWeight: '100' }]}>
+                    20 mins
+                </Text>
+            </View>
+
+        </View>
+        <Image resizeMode='cover' source={assets.icons.heart_filled} style={[{ height: 3 * vh, width: 3 * vh, }]} />
+
+    </View>
+    <Image resizeMode='cover' source={assets.sample_images.profile_header} style={styles.postImage} />
+
+</View>
+
+_renderListAvatarContent = () => (
+    <View style={[styles.avatarWrapperContainer, { position: 'relative', top: 0, left: 0, height: 9 * vh, width: 9 * vh }]}>
+        <View style={[styles.avatarContainer, { height: 7 * vh, width: 7 * vh, borderRadius: (7 * vh) / 2, borderColor: 'yellow', borderWidth: 0.2 * vh }]}>
+            <Image resizeMode='cover' source={assets.sample_images.profile_header} style={[styles.avatarImage, { height: 6 * vh, width: 6 * vh, borderRadius: (6 * vh) / 2 }]} />
+        </View>
+    </View>
+
+)
+
+_renderAvatarContent = () => (
+    <View style={styles.avatarWrapperContainer}>
+        <View style={styles.avatarContainer}>
+            <Image resizeMode='cover' source={assets.sample_images.profile_header} style={styles.avatarImage} />
+        </View>
+    </View>
+)
+
+_renderHeaderButton = (iconType) => (
+    <TouchableOpacity style={styles.headerButtonStyles}>
+        <Image resizeMode='contain' source={assets.icons[iconType]} style={styles.iconImageStyles} />
+    </TouchableOpacity>
+)
+
+_renderHeaderContent = () => (
+    <View style={styles.headerMainContainer}>
+        <View style={styles.header_container}>
+
+            <View style={styles.titleContainer}>
+                <Text style={styles.headerTitleStyles}>
+                    Bella Thorne
+                </Text>
+                <View style={styles.headerBottomContainer}>
+                    {this._renderHeaderButton('settings')}
+                    {this._renderHeaderButton('email')}
+
+                </View>
+            </View>
+        </View>
+        <View style={{
+            alignItems: 'flex-end',
+            // borderWidth: 2,
+            marginBottom: 2*vh
+        }}>
+            {/* <Text style={styles.headerTitleStyles}>
+                Bella Thorne
+            </Text> */}
+            <View style={styles.headerBottomEndContainer}>
+                {/* {this._renderHeaderButton('settings')}
+                {this._renderHeaderButton('email')} */}
+                <Button 
+                    style={styles.btn}
+                    title="16K Following"
+                />
+                <Button 
+                    style={[styles.btn, {backgroundColor: theme.colors.gray}]}
+                    title="16K Following"
+                />
+            </View>
+        </View>
+    </View>
+)
+
+render() {
+    return (
+        <SafeAreaView style={styles.container}>
+            <View style={styles.mainContianer}
+            >
+                
+
+                <FlatList 
+                    data={[1, 2, 3, 4, 5]} 
+                    ListHeaderComponent={this._renderListHeaderSeperator()} 
+                    contentContainerStyle={styles.listStyles} 
+                    renderItem={this._renderListItems} 
+                />
+            </View>
+        </SafeAreaView>
+    )
+}
 }
 
-const mapStates = (state) => {
-  // console.log('state login', state)
-  return state;
-};
-const mapProps = (dispatch) => {
-  return {
-    login: (data) => dispatch(actions.login(data)),
-  };
-};
-
-export default connect(mapStates, mapProps)(Profile);
+export default Profile

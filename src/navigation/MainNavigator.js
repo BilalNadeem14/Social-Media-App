@@ -10,8 +10,8 @@ const RootStack = createStackNavigator()
 
 const RootStackNavigator = () => {
     // const {loggedIn} = this.props
-    const loggedIn = false
-    return loggedIn?( //<Text>Hey</Text>
+    const loggedIn = true
+    return !loggedIn?( //<Text>Hey</Text>
         <RootStack.Navigator
             headerMode="none"
             initialRouteName={'AuthStackNavigator'}
@@ -35,6 +35,7 @@ const RootStackNavigator = () => {
 }
 
 const mapStateToProps = (state) =>{
+    console.log('state: ', state.authReducer.loggedIn);
     return {
         // loggedIn: state.authReducer.loggedIn
     }

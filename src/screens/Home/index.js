@@ -11,7 +11,7 @@ import TouchableHOC from '../../components/TouchableHOC';
 import {StackActions} from '@react-navigation/native';
 import {actions} from '../../redux/actions';
 import {msg, regex, toast} from '../../utils';
-import FriendList from '../../popups/FriendList'
+import FriendList from '../../popups/FriendListPopup'
 class Home extends React.Component {
   constructor(props) {
     super(props);

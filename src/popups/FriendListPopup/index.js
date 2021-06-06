@@ -55,7 +55,7 @@ export default class Loader extends React.PureComponent {
                             <ImageBackground style={styles.closeImageContainer} imageStyle={styles.imgClose}></ImageBackground>
                         </TouchableOpacity>
                         <View style={styles.headingContainer}>
-                            <Text style={styles.heading}>Challenge a friend</Text>
+                            <Text style={styles.heading}></Text>
                         </View>
                         <View style={styles.searchContainer}>
                             <SearchInput width={75 * vw} height={6 * vh} />

@@ -8,7 +8,7 @@ export const toast = (msg) => {
   }
 };
 const persistConfig = {
-  key: 'clean-city-storage-root',
+  key: 'socialMediaApp-storage-root',
   storage: AsyncStorage,
   // whitelist: ['authReducer']
 };

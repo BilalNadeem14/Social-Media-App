@@ -1,6 +1,3 @@
-// export const config = {
-//     url: 'http://dev71.onlinetestingserver.com/Clean-City-LLC/api/'
-// }
 
 import { getConfigs, getMessage, handleResponse, log, performNetworkRequest, dataToQueryParameter } from "./helperFunctions";
 import { base_url } from './configs'

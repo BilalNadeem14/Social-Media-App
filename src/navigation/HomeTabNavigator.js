@@ -10,6 +10,7 @@ import HomeStackNavigator from './HomeNavigator';
 import TabBarButton from '../components/TabBarButton';
 import styles from './styles'
 import Profile from '../screens/Profile';
+import FriendListScreen from '../screens/FriendListScreen';
 
 const HomeTabs = createBottomTabNavigator();
 
@@ -60,7 +61,7 @@ const HomeTabNavigator = (props) => {
                 }}
 
                 name="FriendList"
-                component={HomeStackNavigator}
+                component={FriendListScreen}
 
             />
 
