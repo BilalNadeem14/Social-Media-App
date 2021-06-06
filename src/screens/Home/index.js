@@ -1,5 +1,5 @@
 import React from 'react'
-import { FlatList, Image, ImageBackground, Text, TouchableOpacity, View, ScrollView } from 'react-native'
+import { FlatList, Image, ImageBackground, Text, TouchableOpacity, View, ScrollView, TextInput } from 'react-native'
 import SafeAreaView from 'react-native-safe-area-view';
 import Button from '../../components/Button';
 import styles from './styles'
@@ -19,6 +19,20 @@ class Home extends React.Component {
             response: []
         };
     }
+
+
+
+    _renderNewPostComponent = () => <><View style={styles.newPostContainer}>
+        <Image source={assets.sample_images.profile_header} resizeMode='cover' style={{ height: 5.5 * vh, borderRadius: (5.5 * vh) / 2, width: 5.5 * vh }} />
+        <View style={styles.searchBarContainer}>
+            <TextInput placeholder="What do you think?" style={{ color: 'black', textAlign: 'left', justifyContent: 'center' }} />
+        </View>
+        {this._renderHeaderButton('burst')}
+
+    </View>
+        <View style={styles.listSeperator} />
+
+    </>
 
     _renderListHeaderSeperator = () => (
         <View //style={styles.ListHeader}
@@ -122,7 +136,7 @@ class Home extends React.Component {
 
                     <FlatList
                         data={[1, 2, 3, 4, 5]}
-                        // ListHeaderComponent={this._renderListHeaderSeperator()}
+                        ListHeaderComponent={this._renderNewPostComponent()}
                         contentContainerStyle={styles.listStyles}
                         renderItem={this._renderListItems}
                     />

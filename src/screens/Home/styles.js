@@ -13,6 +13,14 @@ export default StyleSheet.create({
         // height: 100 * vh,
         // width: 100 * vw
     },
+    newPostContainer:{
+        flexDirection:'row',
+        marginVertical:1*vh,
+        paddingHorizontal:6*vw,
+        justifyContent:'space-between',
+
+        
+    },
 
     header_styles: {
         height: 10 * vh,
@@ -27,12 +35,14 @@ export default StyleSheet.create({
         width: '100%',
     },
     searchBarContainer: {
-        width: 55 * vw,
-        height: 4.5 * vh,
+        width: 60 * vw,
+        height: 5 * vh,
         justifyContent: 'center',
         paddingLeft: 5 * vw,
+        borderWidth:0.1*vh,
+        borderColor:'lightgray',
         borderRadius: 2 * vh,
-        backgroundColor: 'lightgray',
+        backgroundColor: '#ffffff',
         // alignItems:'center'
     },
     header_container: {
@@ -147,7 +157,7 @@ export default StyleSheet.create({
     // },
     listSeperator: {
         marginVertical: 1 * vh,
-        marginTop: 18 * vh,
+        // marginTop: 18 * vh,
         height: 0.2 * vh,
         width: 90 * vw,
         backgroundColor: 'lightgray',

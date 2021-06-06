@@ -84,6 +84,8 @@ module.exports = {
             heart: require('./icons/heart.png'),
             search: require('./icons/searchGray.png'),
             heart_filled: require('./icons/heart_filled.png'),
+            burst: require('./icons/burst.png'),
+
         }
     
     }
