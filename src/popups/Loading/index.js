@@ -8,7 +8,7 @@ import vh from '../../utils/units/vh'
 import vw from '../../utils/units/vw'
 import { connect } from 'react-redux'
 import actionTypes from '../../redux/actions/actionTypes'
-import actions from '../../redux/actions/actionTypes'
+// import actions from '../../redux/actions/actionTypes'
 class Loader extends React.Component {
     constructor(props) {
         super(props)

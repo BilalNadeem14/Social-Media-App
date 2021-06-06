@@ -8,9 +8,9 @@ import HomeTabNavigator from './HomeTabNavigator';
 
 const RootStack = createStackNavigator()
 
-const RootStackNavigator = () => {
-    // const {loggedIn} = this.props
-    const loggedIn = true
+const RootStackNavigator = (props) => {
+    const {loggedIn} = props
+    // const loggedIn = true
     return !loggedIn?( //<Text>Hey</Text>
         <RootStack.Navigator
             headerMode="none"
@@ -35,9 +35,9 @@ const RootStackNavigator = () => {
 }
 
 const mapStateToProps = (state) =>{
-    console.log('state: ', state.authReducer.loggedIn);
+    console.log('state: ', state);
     return {
-        // loggedIn: state.authReducer.loggedIn
+        loggedIn: state.authReducer.loggedIn
     }
 }
 

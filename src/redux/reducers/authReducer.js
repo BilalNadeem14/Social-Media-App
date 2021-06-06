@@ -9,12 +9,46 @@ export default (state = INITIAL_STATE, action) => {
         case REHYDRATE: {
             return state
         }
-        
+
+        case types.SIGN_UP:
+            console.log('action.payload: ', action.payload);
+            let newUser = true
+            state.users.map((val) => {
+                if(action.payload.email == val.email){
+                    newUser = false
+                }
+                else {
+                    newUser = true
+                }
+            })
+            if(newUser){
+                return {...state, users: [...state.users, {...action.payload}], image: {}}
+            }
+            else{
+                return {...state}
+            }
+
         case types.LOGIN:
-            return {...state}
+            console.log('action.payload: ', action.payload);
+            let userExist = false
+            let userIndex = 0
+            state.users.map((val, index) => {
+                if(action.payload.email == val.email && action.payload.email == val.email){
+                    console.log('user exists');
+                    userExist = true
+                    userIndex = index
+                }
+            })
+            if(userExist) {
+                return {...state, user: state.users[userIndex], loggedIn: true}
+            }
+            else{
+                return {...state}
+            }
         
         case types.LOGOUT:
-            return {...initialState}
+            return {...state, user: {}, image: {}}
+            // {...initialState}
         
         case types.SET_IMAGE:
             console.log('auth reducer image: ', action.payload)

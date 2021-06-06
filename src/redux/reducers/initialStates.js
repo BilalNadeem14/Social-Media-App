@@ -1,4 +1,4 @@
-const authReducer = {loggedIn: false, user: {}, token: ''} //u2HLrCNAlrGZeN56qP32IrMee5LdLPaYfTVjbdtGWyE0KFLZbDAUVfaWI4FrvoeDLf0iX7RUXTlQ7OIR
+const authReducer = {loggedIn: false, user: {}, token: '', users: []} //user is the currentUser
 const mainReducer = {
     general_data: [],
     loading: false,

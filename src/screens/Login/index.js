@@ -33,21 +33,26 @@ class Login extends React.Component {
   login = async () => {
     if (
       !(
-        regex.email.test(this.state.email) || regex.phone.test(this.state.email)
+        regex.email.test(this.state.email) //|| regex.phone.test(this.state.email)
       )
     ) {
-      //email can be phone or email
-      toast(msg.invalidEmailOrPhone);
-    } else {
+      toast(msg.invalidEmail);
+    }
+    else if(this.state.password == ''){
+      toast(msg.requiredPassword)
+    }
+    else {
       const data = {email: this.state.email, password: this.state.password};
       try {
         const auth = await this.props.login(data);
         console.log('loginScreen: ', auth);
         toast('successfully logged In');
-        this.props.navigation.dispatch(
-          //uncomment this
-          StackActions.replace('HomeTabNavigator'),
-        );
+
+        // I'm not using this bec I'm using switch navigation :)
+        // this.props.navigation.dispatch(
+        //   //uncomment this
+        //   StackActions.replace('HomeTabNavigator'),
+        // );
         // this.props.navigation.navigate('HomeTabNavigator')
       } catch (e) {
         console.log('loginScreen error: ', e);
@@ -71,13 +76,14 @@ class Login extends React.Component {
           style={styles.container}
           contentContainerStyle={styles.scrollContent}>
           <MainInput
-            label="Email Or Phone"
-            placeholder="Enter Email Or Phone"
+            label="Email"
+            placeholder="Enter Email"
             style={styles.input}
             fieldStyle={styles.inputFieldStyle}
             value={this.state.email}
             type="email"
             onChangeText={this.onChangeText}
+            keyboardType='email-address'
           />
 
           <MainInput

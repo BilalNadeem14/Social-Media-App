@@ -47,7 +47,7 @@ export const msg = {
   profileUpdatedSuccess: 'Profile updated successfully',
 };
 const events = {
-  verifyAccountEvent: 'clickmarketing:verifyAccount',
+  verifyAccountEvent: 'verifyAccount',
   logoutAccountEvent: 'InvalidToken:Logout',
 };
 

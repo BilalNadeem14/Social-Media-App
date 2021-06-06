@@ -1,6 +1,6 @@
 import {REHYDRATE} from 'redux-persist'
 
-import actionTypes from '../actions/actionTypes'
+import types from '../actions/actionTypes'
 import initialState from './initialStates'
 const INITIAL_STATE = initialState.mainReducer
 
@@ -9,18 +9,31 @@ const GeneralReducer = (state = INITIAL_STATE, action) => {
         case REHYDRATE: {
             return state
         }
-        case actionTypes.loaderOn: {
+        case types.loaderOn: {
+            console.log('types.loaderOn called');
             return {
                 ...state,
                 loading: true
             }
         }
-        case actionTypes.loaderOff: {
+        case types.loaderOff: {
             return {
                 ...state,
                 loading: false
             }
         }
+        // case types.LOGIN: {
+        //     return {
+        //         ...state,
+        //         loading: false
+        //     }
+        // }
+        // case types.SIGN_UP: {
+        //     return {
+        //         ...state,
+        //         loading: false
+        //     }
+        // }
         
         default:
             return state

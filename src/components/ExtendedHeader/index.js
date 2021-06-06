@@ -29,8 +29,10 @@ class ExtendedHeader extends React.Component {
   //   console.log('error ', error)
   //   })
   imagePicker = () => {
+    console.log('image picker called');
     // var data = {}
-    imagePicker.open(success => {
+    imagePicker.open(
+        success => {
       console.log("success data", success);
       
       this.setState({userImage: success.uri})//'data:image/png,' + //data:image/jpeg;base64 => success.data
@@ -63,40 +65,6 @@ class ExtendedHeader extends React.Component {
     // state[type]
   };
 
-  searchService = async () => {
-    // if (this.state.search == '') {
-    //   toast('Please enter a valid service to search');
-    // } else 
-    if (!regex.alphabets.test(this.state.search)) {
-      toast('Entered service is invalid');
-    } else {
-      try{
-        this.setState({response: await 
-          this.props.getServices(this.state.search) //.services
-      })
-      //   console.log('response in screen: ', this.state.response) 
-        // toast()
-      }
-      catch(e) {
-          console.log('error in services screen: ', e)
-          toast(e)
-          //toast('Error while fetching the data, Reload the screen') 
-      }
-
-
-      // try {
-      //   const response = await this.props.getServices(this.state.search);
-      //   console.log('getServices response in  screen: ', response);
-      //   var stateResponse = {...this.state.response};
-      //   if (response.services) {
-      //     stateResponse.services = response.services;
-      //     this.setState({response: stateResponse});
-      //   }
-      // } catch (e) {
-      //   toast(e);
-      // }
-    }
-  };
 
   renderBody = () => {
     // console.log("route current", this.props.scene);
@@ -243,7 +211,6 @@ const mapDispacthToProps = (dispatch) => {
         // getuser: (pass, fail) => dispatch(actions.GHFS.getuser(pass, fail)),
         // loading: (value) => dispatch({ type: "LOADING", value }),
         setImage: (image) => dispatch(actions.setImage(image)),
-        getServices: (params) => dispatch(actions.getServices(params)),
     }
 }
 export default connect(mapStateToProps, mapDispacthToProps)(ExtendedHeader);

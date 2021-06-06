@@ -1,10 +1,10 @@
 import React from 'react';
-import { Text, View, TextInput } from 'react-native';
+import {Text, View, TextInput} from 'react-native';
 import TextMedium from '../TextMedium';
 import styles from './styles';
 import Ripple from 'react-native-material-ripple';
 import IconButton from '../IconButton';
-import { icons } from '../../assets/images';
+import {icons} from '../../assets/images';
 import vh from '../../utils/units/vh';
 import TextRegular from '../TextRegular';
 import theme from '../../utils/units/theme';
@@ -18,7 +18,7 @@ class MainInput extends React.Component {
     };
   }
   toggle = () => {
-    this.setState({ show: !this.state.show });
+    this.setState({show: !this.state.show});
   };
   renderEye = () => {
     if (this.props.secureTextEntry === true) {
@@ -42,17 +42,15 @@ class MainInput extends React.Component {
           <TextBold style={[styles.label, this.props.labelStyles]}>
             {this.props.label}{' '}
             {this.props.required ? (
-              <TextBold style={[styles.label, { color: '#CE1127' }]}>
-                *
-              </TextBold>
+              <TextBold style={[styles.label, {color: '#CE1127'}]}>*</TextBold>
             ) : null}
           </TextBold>
           {this.props.hint ? (
             <TextRegular
               style={[
                 styles.label,
-                { color: '#666666', fontSize: vh * 1.6, marginBottom: vh * 1 },
-                this.props.labelStyle
+                {color: '#666666', fontSize: vh * 1.6, marginBottom: vh * 1},
+                this.props.labelStyle,
               ]}>
               {this.props.hint}{' '}
             </TextRegular>
@@ -84,6 +82,12 @@ class MainInput extends React.Component {
             secureTextEntry={secure}
             selectionColor={theme.colors.primaryColor}
             style={[styles.field, this.props.fieldStyle]}
+            value={this.props.value}
+            onChangeText={(value) => {
+              console.warn('type: ', this.props.type);
+              this.props.onChangeText(value, this.props.type);
+            }}
+            // onChangeText={this.props.onChangeText}
           />
           {this.renderEye()}
           {this.props.rightIcon2 && (

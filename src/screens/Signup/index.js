@@ -29,7 +29,6 @@ class Signup extends React.Component {
   componentDidMount() {}
 
   onChangeText = (value, type) => {
-    // console.log('baby')
     this.setState({...this.state, [type]: value});
     // state[type]
   };
@@ -53,27 +52,29 @@ class Signup extends React.Component {
       // console.log('phone wrong', this.state.phone)
       return
     }
-    else if(this.state.address === '') {
-      toast('Please enter your Address')
-    }
+    // else if(this.state.address === '') {
+    //   toast('Please enter your Address')
+    // }
     else if(this.state.password !== this.state.rePassword) {
       toast(msg.passwordNotMatch)
       return
     }
     else {
       const data = {
-        first_name: this.state.firstName, 
-        last_name: this.state.lastName, 
+        firstName: this.state.firstName, 
+        lastName: this.state.lastName, 
         email: this.state.email, 
         phone: this.state.phone, 
-        address: this.state.address, 
+        // address: this.state.address, 
         password: this.state.password, 
         image: this.props.image //bring from redux
       }
       this.props.signup(data, (response) => {
+        console.log('response in screen');
         toast(response)
         this.props.navigation.goBack()
       }, error => {
+        console.log('error in screen', error);
         toast(error)
       })
       return  
@@ -124,6 +125,7 @@ class Signup extends React.Component {
               value={this.state.email}
               type="email"
               onChangeText={this.onChangeText}
+              keyboardType='email-address'
             />
             <MainInput
               label="Phone"
@@ -200,7 +202,7 @@ const mapStates = (state) => {
 const mapDispatchToProps = (dispatch) => {
   console.log('mapDispatch');
   return {
-    signup: (data, callback, error) => {dispatch(actions.signup(data, callback, error))}
+    signup: (data, callback, error) => dispatch(actions.signup(data, callback, error))
   };
 };
 

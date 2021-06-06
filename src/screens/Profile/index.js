@@ -97,7 +97,7 @@ _renderHeaderContent = () => (
         <View style={{
             alignItems: 'flex-end',
             // borderWidth: 2,
-            marginBottom: 2*vh
+            // marginBottom: 0*vh
         }}>
             {/* <Text style={styles.headerTitleStyles}>
                 Bella Thorne
