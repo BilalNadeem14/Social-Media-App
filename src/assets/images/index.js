@@ -53,9 +53,9 @@ module.exports = {
 
     },
     tabIcons: {
-        inactiveHome: require('./tabIcons/inactiveHome.png'),
-        activeHome: require('./tabIcons/activeHome.png'),
-        inactivePackage: require('./tabIcons/inactivePackage.png'),
+        inactiveHome: require('./icons/home.png'),
+        friends: require('./icons/friends.png'),
+        profile: require('./icons/user.png'),
         activePackage: require('./tabIcons/activePackage.png'),
         inactiveMenu: require('./tabIcons/inactiveMenu.png'),
         activeMenu: require('./tabIcons/activeMenu.png'),

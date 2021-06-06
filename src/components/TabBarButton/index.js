@@ -14,21 +14,21 @@ class TabBarButton extends React.Component {
         var imageSource = null;
         var title = null;
         var titleColor = this.props.params.focused ? theme.colors.primaryColor : theme.colors.lightGrey;
-        var activeBg = this.props.params.focused ? "rgba(80,3,173,0.1)" : "transparent";
+        var activeBg = this.props.params.focused ? "#5255ff" : "transparent";
         var focused = this.props.params.focused;
         switch (this.props.name) {
             case 'Home': {
-                imageSource = focused ? tabIcons.activeHome : tabIcons.inactiveHome
+                imageSource = tabIcons.inactiveHome
                 title = "Home"
                 break
             }
             case 'Package': {
-                imageSource = focused ? tabIcons.activePackage : tabIcons.inactivePackage
+                imageSource = tabIcons.friends
                 title = "Package"
                 break
             }
             case 'Chat': {
-                imageSource = focused ? tabIcons.activeChat : tabIcons.inactiveChat
+                imageSource = tabIcons.profile
                 title = "Chat"
                 break
             }
@@ -42,11 +42,11 @@ class TabBarButton extends React.Component {
 
         return (
             <View
-                style={[styles.tabButtonContainer, focused && {borderTopColor: theme.colors.primaryColor,}]}
+                style={[styles.tabButtonContainer, focused && { borderTopColor: theme.colors.primaryColor, }]}
             >
 
                 <Image
-                    style={[styles.tabButtonIcon, {tintColor: titleColor}]}
+                    style={[styles.tabButtonIcon, { tintColor: titleColor }]}
                     source={imageSource}
                     resizeMode="contain" />
 
