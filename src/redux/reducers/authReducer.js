@@ -1,4 +1,5 @@
 import {REHYDRATE} from 'redux-persist'
+import { toast } from '../../utils'
 import types from '../actions/actionTypes'
 import initialState from './initialStates'
 
@@ -32,17 +33,38 @@ export default (state = INITIAL_STATE, action) => {
             console.log('action.payload: ', action.payload);
             let userExist = false
             let userIndex = 0
-            state.users.map((val, index) => {
-                if(action.payload.email == val.email && action.payload.email == val.email){
-                    console.log('user exists');
-                    userExist = true
-                    userIndex = index
+            if(action.payload.deviceId){
+                if(action.payload.email != ''){
+                    state.users.map((val, index) => {
+                        if(action.payload.email == val.email && action.payload.password == val.password){
+                            console.log('user exists');
+                            userExist = true
+                            userIndex = index
+                            val.deviceId = action.payload.deviceId
+                        }
+                    })
                 }
-            })
-            if(userExist) {
-                return {...state, user: state.users[userIndex], loggedIn: true}
+                else if(action.payload.deviceId){
+                    state.users.map((val, index) => {
+                        if(action.payload.deviceId == val.deviceId){
+                            console.log('user exists');
+                            userExist = true
+                            userIndex = index
+                            val.deviceId = action.payload.deviceId
+                        }
+                    })
+                }
+                if(userExist) {
+                    toast('successfully logged In');
+                    return {...state, user: {...state.users[userIndex], deviceId: action.payload.deviceId}, loggedIn: true}
+                }
+                else{
+                    toast('login unsuccessful');
+                    return {...state}
+                }
             }
             else{
+                toast('login unsuccessful');
                 return {...state}
             }
         
