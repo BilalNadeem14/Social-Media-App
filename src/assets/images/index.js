@@ -63,12 +63,7 @@ module.exports = {
         activeChat: require('./tabIcons/activeChat.png'),
     },
     sampleImages: {
-        splash: require('./sampleImages/splash.png'),
-        tutorialBg: require('./sampleImages/tutorialBg.png'),
-
-        service: require('./sampleImages/service.png'),
-        serviceEmp: require('./sampleImages/serviceEmp.png'),
-
+        
         userimg: require('./sampleImages/userimg.png'),
 
     },
